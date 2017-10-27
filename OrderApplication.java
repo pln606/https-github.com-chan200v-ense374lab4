@@ -26,6 +26,12 @@ public class OrderApplication
 
     public boolean createOrder(Order order)
     {
+        for (int i = 0; i < productCatalogue.getProducts().size(); i++)
+        {
+            productCatalogue.getProducts().get(i).printValues();
+        }
+
+
         return true;
     }
 
@@ -41,7 +47,11 @@ public class OrderApplication
                 line = in.nextLine();
                 System.out.println(line);
                 String[] tokens = line.split("\\|");
-                //productCatalogue.add();
+                int productID = Integer.parseInt(tokens[0]);
+                String name = tokens[1];
+                float price = Float.parseFloat(tokens[2]);
+                Product newProduct = new Product(name, price, productID);
+                productCatalogue.getProducts().add(newProduct);
             }
             in.close();
         }

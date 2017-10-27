@@ -28,4 +28,9 @@ public class Product
     {
         return this.productId;
     }
+
+    public void printValues()
+    {
+        System.out.format("ID = %d|Name = %s|Price = %f\n",  this.productId, this.name, this.price);
+    }
 }
