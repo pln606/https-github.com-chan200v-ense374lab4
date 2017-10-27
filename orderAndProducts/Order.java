@@ -8,6 +8,13 @@ public class Order
     private int orderInt;
     private List<OrderLine> listOfOrderLines = new ArrayList<>();
 
+    public Order()
+    {
+        this.dateReceived = new Date();
+        this.price = 0.0;
+        this.orderInt = 0;
+    }
+
     public Order(Date dateReceived, double price, int orderInt)
     {
         this.dateReceived = dateReceived;
