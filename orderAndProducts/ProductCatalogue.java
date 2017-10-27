@@ -3,5 +3,10 @@ import java.util.*;
 
 public class ProductCatalogue
 {
-    public List<Product> listOfProducts = new ArrayList<>();
+    private ArrayList<Product> listOfProducts = new ArrayList<>();
+
+    public ArrayList<Product> getProducts()
+    {
+        return listOfProducts;
+    }
 }
