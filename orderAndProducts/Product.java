@@ -14,17 +14,17 @@ public class Product
         this.productId = productId;
     }
 
-    private String getName()
+    public String getName()
     {
         return this.name;
     }
 
-    private double getPrice()
+    public double getPrice()
     {
         return this.price;
     }
 
-    private int getProductId()
+    public int getProductId()
     {
         return this.productId;
     }
