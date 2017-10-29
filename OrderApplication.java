@@ -18,7 +18,8 @@ public class OrderApplication
             userOrder.printOrder();
             orderApplication.createOrder(userOrder);
             userOrder.printOrder();
-
+            double totalAmount = userOrder.calculatePrice();
+            System.out.format("Total Amount = $%f\n", totalAmount);
         }
         else
         {
@@ -31,7 +32,7 @@ public class OrderApplication
         Precondition: This method assumes order is initially empty;
     */
     {
-        System.out.println("PROG: Calling Create Order.");
+        System.out.println("PROG: Calling createOrder.");
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("Monitor"), 2);
@@ -48,7 +49,7 @@ public class OrderApplication
 
     private boolean importCatalogue()
     {
-        System.out.println("PROG: Calling Import Products.");
+        System.out.println("PROG: Calling importCatalogue.");
         boolean returnValue = true;
         String line = "";
         try
