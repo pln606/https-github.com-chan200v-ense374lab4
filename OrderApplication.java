@@ -27,6 +27,9 @@ public class OrderApplication
     }
 
     public boolean createOrder(Order order)
+    /*
+        Precondition: This method assumes order is initially empty;
+    */
     {
         System.out.println("PROG: Calling Create Order.");
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
