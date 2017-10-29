@@ -1,4 +1,5 @@
 package orderAndProducts;
+import customer.*;
 import java.util.*;
 
 public class Order
@@ -7,12 +8,14 @@ public class Order
     private double price;
     private int orderInt;
     private ArrayList<OrderLine> listOfOrderLines = new ArrayList<>();
+    private Customer customer;
 
     public Order()
     {
         this.dateReceived = new Date();
         this.price = 0.0;
         this.orderInt = 0;
+        this.customer = null;
     }
 
     public Order(Date dateReceived, double price, int orderInt)
@@ -20,6 +23,15 @@ public class Order
         this.dateReceived = dateReceived;
         this.price = price;
         this.orderInt = orderInt;
+        this.customer = null;
+    }
+
+    public Order(Date dateReceived, double price, int orderInt, Customer customer)
+    {
+        this.dateReceived = dateReceived;
+        this.price = price;
+        this.orderInt = orderInt;
+        this.customer = customer;
     }
 
     public boolean addProduct(Product product, int quantity)
