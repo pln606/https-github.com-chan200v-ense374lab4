@@ -32,10 +32,17 @@ public class OrderApplication
             productCatalogue.getProducts().get(i).printValues();
         }
         order.printOrder();
-        Product ram1GB = productCatalogue.getProductByName("1GB RAM");
-        order.addProduct(ram1GB, 1);
-        order.printOrder();
-        order.addProduct(ram1GB, 1);
+        order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
+        order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
+        order.addProduct(productCatalogue.getProductByName("Monitor"), 2);
+        order.addProduct(productCatalogue.getProductByName("VGA connector"), 1);
+        order.addProduct(productCatalogue.getProductByName("DVI connector"), 1);
+        order.addProduct(productCatalogue.getProductByName("Graphics Card"), 1);
+        order.addProduct(productCatalogue.getProductByName("128-core processor"), 1);
+        order.addProduct(productCatalogue.getProductByName("Motherboard version 2"), 1);
+        order.addProduct(productCatalogue.getProductByName("Wired Mouse"), 1);
+        order.addProduct(productCatalogue.getProductByName("Wired Keyboard"), 1);
+        order.addProduct(productCatalogue.getProductByName("PC Case"), 1);
         order.printOrder();
         return true;
     }
