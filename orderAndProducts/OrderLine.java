@@ -9,6 +9,7 @@ public class OrderLine
 
     public OrderLine(Product product, int quantity)
     {
+        System.out.format("PROG: Calling OrderLine() Constructor\n");
         this.quantity = quantity;
         this.product = product;
         this.calculatePrice();
@@ -16,11 +17,13 @@ public class OrderLine
 
     public void calculatePrice()
     {
+        System.out.format("PROG: Calling calculatePrice\n");
         this.price = this.product.getPrice() * this.quantity;
     }
 
     public void incrementQuantity(int quantity)
     {
+        System.out.format("PROG: Calling incrementQuantity\n");
         this.quantity += quantity;
         this.calculatePrice();
     }

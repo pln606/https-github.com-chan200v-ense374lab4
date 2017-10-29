@@ -41,6 +41,7 @@ public class Order
 
     public boolean addProduct(Product product, int quantity)
     {
+        System.out.format("PROG: Calling addProduct\n");
         if (product == null)
         {
             return false;

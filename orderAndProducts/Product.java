@@ -21,6 +21,7 @@ public class Product
 
     public double getPrice()
     {
+        System.out.format("PROG: Calling getPrice\n");
         return this.price;
     }
 
