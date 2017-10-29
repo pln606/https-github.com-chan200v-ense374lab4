@@ -19,8 +19,8 @@ public class OrderApplication
             userOrder.printOrder();
             orderApplication.createOrder(userOrder);
             userOrder.printOrder();
-            double totalAmount = userOrder.calculatePrice();
-            System.out.format("Total Amount = $%f\n", totalAmount);
+            double orderAmount = userOrder.calculatePrice();
+            System.out.format("This order has a grand total of $%f\n", orderAmount);
         }
         else
         {
@@ -37,8 +37,8 @@ public class OrderApplication
         Customer newCustomer = new Customer(
             "Vincent Chan",
             "Regina, Sask",
-            0,
-            0);
+            (float)0,
+            (float)0.3);
         order.setCustomer(newCustomer);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
