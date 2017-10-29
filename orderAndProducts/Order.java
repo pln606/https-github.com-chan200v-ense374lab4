@@ -76,12 +76,17 @@ public class Order
     {
         System.out.format("PROG: Calling calculatePrice\n");
         ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
-        this.price = 0.0;
+        double totalAmount = 0.0;
         while(iterator.hasNext())
         {
             OrderLine currentOrderLine = iterator.next();
-            this.price += currentOrderLine.getPrice();
+            totalAmount += currentOrderLine.getPrice();
         }
+        System.out.format("Total Amount = $%f\n", totalAmount);
+        float discountPercentage = this.customer.getDiscountRating();
+        System.out.format("Perentage Discount = %f\n", discountPercentage);
+        this.price = totalAmount * (1-discountPercentage);
+        System.out.format("Final Amount = $%f\n", this.price);
         return this.price;
     }
 
