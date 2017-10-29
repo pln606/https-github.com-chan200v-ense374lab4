@@ -13,9 +13,11 @@ public class OrderApplication
         if (orderApplication.importCatalogue())
         {
             System.out.println("Successfully imported a product catalogue.");
+            orderApplication.productCatalogue.printCatalogue();
             Order userOrder = new Order();
+            userOrder.printOrder();
             orderApplication.createOrder(userOrder);
-
+            userOrder.printOrder();
 
         }
         else
@@ -26,12 +28,7 @@ public class OrderApplication
 
     public boolean createOrder(Order order)
     {
-        System.out.println("The product catalogue has the following.");
-        for (int i = 0; i < productCatalogue.getProducts().size(); i++)
-        {
-            productCatalogue.getProducts().get(i).printValues();
-        }
-        order.printOrder();
+        System.out.println("PROG: Calling Create Order.");
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("Monitor"), 2);
@@ -43,12 +40,12 @@ public class OrderApplication
         order.addProduct(productCatalogue.getProductByName("Wired Mouse"), 1);
         order.addProduct(productCatalogue.getProductByName("Wired Keyboard"), 1);
         order.addProduct(productCatalogue.getProductByName("PC Case"), 1);
-        order.printOrder();
         return true;
     }
 
     private boolean importCatalogue()
     {
+        System.out.println("PROG: Calling Import Products.");
         boolean returnValue = true;
         String line = "";
         try
@@ -57,7 +54,7 @@ public class OrderApplication
             while (in.hasNextLine())
             {
                 line = in.nextLine();
-                System.out.println(line);
+                //System.out.println(line);
                 String[] tokens = line.split("\\|");
                 int productID = Integer.parseInt(tokens[0]);
                 String name = tokens[1];

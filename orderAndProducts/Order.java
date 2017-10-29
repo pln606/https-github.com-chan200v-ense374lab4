@@ -64,10 +64,17 @@ public class Order
     {
         System.out.format("Printing current order\n");
         ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
-        while(iterator.hasNext())
+        if (iterator.hasNext())
         {
-            OrderLine currentOrderLine = iterator.next();
-            currentOrderLine.printOrderLine();
+            while(iterator.hasNext())
+            {
+                OrderLine currentOrderLine = iterator.next();
+                currentOrderLine.printOrderLine();
+            }
+        }
+        else
+        {
+            System.out.format("Empty order\n");
         }
     }
 }

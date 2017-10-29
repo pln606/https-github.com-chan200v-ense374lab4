@@ -31,4 +31,13 @@ public class ProductCatalogue
         }
         return returnProduct;
     }
+
+    public void printCatalogue()
+    {
+        System.out.println("The product catalogue has the following.");
+        for (int i = 0; i < this.listOfProducts.size(); i++)
+        {
+            this.listOfProducts.get(i).printValues();
+        }
+    }
 }
