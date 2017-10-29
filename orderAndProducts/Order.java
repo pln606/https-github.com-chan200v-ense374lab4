@@ -57,6 +57,14 @@ public class Order
 
     public double calculatePrice()
     {
+        System.out.format("PROG: Calling calculatePrice\n");
+        ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
+        this.price = 0.0;
+        while(iterator.hasNext())
+        {
+            OrderLine currentOrderLine = iterator.next();
+            this.price += currentOrderLine.getPrice();
+        }
         return this.price;
     }
 
