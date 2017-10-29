@@ -1,3 +1,4 @@
+import customer.*;
 import orderAndProducts.*;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -33,6 +34,12 @@ public class OrderApplication
     */
     {
         System.out.println("PROG: Calling createOrder.");
+        Customer newCustomer = new Customer(
+            "Vincent Chan",
+            "Regina, Sask",
+            0,
+            0);
+        order.setCustomer(newCustomer);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("8GB RAM"), 1);
         order.addProduct(productCatalogue.getProductByName("Monitor"), 2);

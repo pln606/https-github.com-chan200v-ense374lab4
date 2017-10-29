@@ -31,6 +31,11 @@ public class Order
         this.dateReceived = dateReceived;
         this.price = price;
         this.orderInt = orderInt;
+        this.setCustomer(customer);
+    }
+
+    public void setCustomer(Customer customer)
+    {
         this.customer = customer;
     }
 
@@ -83,6 +88,10 @@ public class Order
     public void printOrder()
     {
         System.out.format("Printing current order\n");
+        if (this.customer != null)
+        {
+            System.out.format("Customer = %s\n", this.customer.getName());
+        }
         ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
         if (iterator.hasNext())
         {
