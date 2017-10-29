@@ -37,6 +37,7 @@ public class Customer
 
     public float getDiscountRating()
     {
+        System.out.format("PROG: Calling getDiscountRating\n");
         return this.discountRating;
     }
 }
