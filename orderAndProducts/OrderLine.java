@@ -42,7 +42,9 @@ public class OrderLine
 
     public void printOrderLine()
     {
-        System.out.format("Product = %s|Quantity = %d|Price = $%f\n",
-            this.product.getName(), this.quantity, this.price);
+        System.out.format(
+            "Product = %s|Unit Price = $%f| Quantity = %d|Price = $%f\n",
+            this.product.getName(), this.product.getPrice(),
+            this.quantity, this.price);
     }
 }
