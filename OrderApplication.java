@@ -26,12 +26,17 @@ public class OrderApplication
 
     public boolean createOrder(Order order)
     {
+        System.out.println("The product catalogue has the following.");
         for (int i = 0; i < productCatalogue.getProducts().size(); i++)
         {
             productCatalogue.getProducts().get(i).printValues();
         }
-
-
+        order.printOrder();
+        Product ram1GB = productCatalogue.getProductByName("1GB RAM");
+        order.addProduct(ram1GB, 1);
+        order.printOrder();
+        order.addProduct(ram1GB, 1);
+        order.printOrder();
         return true;
     }
 

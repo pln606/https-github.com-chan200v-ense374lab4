@@ -6,7 +6,7 @@ public class Order
     private Date dateReceived;
     private double price;
     private int orderInt;
-    private List<OrderLine> listOfOrderLines = new ArrayList<>();
+    private ArrayList<OrderLine> listOfOrderLines = new ArrayList<>();
 
     public Order()
     {
@@ -22,6 +22,34 @@ public class Order
         this.orderInt = orderInt;
     }
 
+    public boolean addProduct(Product product, int quantity)
+    {
+        if (product == null)
+        {
+            return false;
+        }
+        else
+        {
+            boolean isDone = false;
+            ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
+            while(iterator.hasNext())
+            {
+                OrderLine currentOrderLine = iterator.next();
+                if (product == currentOrderLine.getProduct())
+                {
+                    currentOrderLine.incrementQuantity(quantity);
+                    isDone = true;
+                }
+            }
+            if (!isDone)
+            {
+                OrderLine newOrderLine = new OrderLine(product, quantity);
+                listOfOrderLines.add(newOrderLine);
+            }
+        }
+        return true;
+    }
+
     public Date getDateReceived()
     {
         return this.dateReceived;
@@ -30,5 +58,16 @@ public class Order
     public double calculatePrice()
     {
         return this.price;
+    }
+
+    public void printOrder()
+    {
+        System.out.format("Printing current order\n");
+        ListIterator<OrderLine> iterator = this.listOfOrderLines.listIterator();
+        while(iterator.hasNext())
+        {
+            OrderLine currentOrderLine = iterator.next();
+            currentOrderLine.printOrderLine();
+        }
     }
 }
