@@ -17,10 +17,11 @@ public class ProductCatalogue
         ListIterator<Product> iterator = this.listOfProducts.listIterator();
         while(iterator.hasNext() && !isDone)
         {
-            int comparision = name.compareTo(iterator.next().getName());
+            Product currentProduct = iterator.next();
+            int comparision = name.compareTo(currentProduct.getName());
             if (comparision == 0)
             {
-                returnProduct = iterator.next();
+                returnProduct = currentProduct;
                 isDone = true;
             }
             else if(comparision > 0)
