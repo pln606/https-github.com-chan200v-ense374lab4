@@ -31,6 +31,6 @@ public class Product
 
     public void printValues()
     {
-        System.out.format("ID = %d|Name = %s|Price = %f\n",  this.productId, this.name, this.price);
+        System.out.format("ID = %d|Name = %s|Price = $%f\n",  this.productId, this.name, this.price);
     }
 }
