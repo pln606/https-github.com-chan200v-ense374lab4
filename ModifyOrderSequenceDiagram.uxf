@@ -31,7 +31,7 @@ fontsize=10
       <x>9</x>
       <y>0</y>
       <w>1188</w>
-      <h>414</h>
+      <h>477</h>
     </coordinates>
     <panel_attributes>title=Modify Order
 obj=Order Application~a
@@ -42,14 +42,14 @@ obj=Customer~e
 
 gate-&gt;a.a1 : Import products
 gate-&gt;a.a2 : Create/Initialize Order
-gate-&gt;a.a3 : Remove N Product
-a-&gt;&gt;&gt;b : removeProduct(Product, N) ;on=b
-b-&gt;&gt;&gt;c : removeProduct(N) if this product exists in the Order; on=c
+gate-&gt;a.a3 : Add N Product (Where N is a positive or negaitve number)
+a-&gt;&gt;&gt;b : addProduct(Product, N) ;on=b
+b-&gt;&gt;&gt;c : incrementQuantity(N) if this product exists in the Order; on=c
 c-&gt;&gt;&gt;c +: calculatePrice()
 c-&gt;&gt;&gt;d : getPrice()
 d-&gt;c : return price of the product
-c-&gt;b : returning from removeProduct(N) constructor; off=c
-b-&gt;a : returning from removeProduct(Product, N)
+c-&gt;b : returning from incrementQuantity(N) constructor; off=c
+b-&gt;a : returning from addProduct(Product, N)
 
 
 

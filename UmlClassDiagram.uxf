@@ -20,9 +20,6 @@
 + addProduct(
    product: Product,
    quantity: int): boolean
-+ removeProduct(
-   product: Product,
-   quantity: int): boolean
 + getDateReceived(): Date
 + calculatePrice(): Double
 + printOrder(): void
@@ -51,8 +48,6 @@ OrderLine(
 + getPrice(): double
 + calculatePrice(): void
 + incrementQuantity(
-   quantity: int): void
-+ decrementQuantity(
    quantity: int): void
 + printOrderLine(): void
 </panel_attributes>
@@ -293,11 +288,9 @@ _    : Scanner_</panel_attributes>
       <x>260</x>
       <y>65</y>
       <w>169</w>
-      <h>52</h>
+      <h>39</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
 </diagram>
