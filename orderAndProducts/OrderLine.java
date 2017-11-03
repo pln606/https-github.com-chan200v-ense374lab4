@@ -25,6 +25,10 @@ public class OrderLine
     {
         System.out.format("PROG: Calling incrementQuantity\n");
         this.quantity += quantity;
+        if (this.quantity < 0)
+        {
+            this.quantity = 0;
+        }
         this.calculatePrice();
     }
 
