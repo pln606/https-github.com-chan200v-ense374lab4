@@ -1,3 +1,4 @@
+import CommandLineInterface.*;
 import customer.*;
 import orderAndProducts.*;
 import java.io.IOException;
@@ -16,11 +17,60 @@ public class OrderApplication
             System.out.println("Successfully imported a product catalogue.");
             orderApplication.productCatalogue.printCatalogue();
             Order userOrder = new Order();
-            userOrder.printOrder();
             orderApplication.createOrder(userOrder);
-            userOrder.printOrder();
-            double orderAmount = userOrder.calculatePrice();
-            System.out.format("This order has a grand total of $%f\n", orderAmount);
+            String mainMenuString = (
+                "Lab5Main:\n" +
+                "1 - Print the order.\n" +
+                "2 - Print the product catalogue.\n" +
+                "3 - Modify the order.\n" +
+                "4 - Get the final cost of the order.\n" +
+                "-1 - Exit the program.\n");
+            CommandLineInterface cli = new CommandLineInterface(mainMenuString);
+
+            while(true)
+            {
+                System.out.format("\n");
+                int selection = cli.getMainMenuNumber();
+                String name = "";
+                int quantity = 0;
+                switch(selection)
+                {
+                    case 1:
+                        System.out.format("PROG: Printing Order.\n");
+                        userOrder.printOrder();
+                        break;
+                    case 2:
+                        System.out.format("PROG: Printing Catalogue.\n");
+                        orderApplication.productCatalogue.printCatalogue();
+                        break;
+                    case 3:
+                        System.out.format("PROG: Modify the order.\n");
+                        name = cli.getLine("Enter the name of the product you would like to add");
+                        quantity = cli.getInt("How many quantities do you want to add? (Negatives to delete)");
+                        Product findProduct = orderApplication.productCatalogue.getProductByName(name);
+                        if (findProduct == null)
+                        {
+                             System.out.format("ERROR: Product does not exists in the catalogue.\n");
+                        }
+                        else
+                        {
+                             System.out.format("Product exists in the catalogue.\n");
+                             userOrder.addProduct(findProduct, quantity);
+                        }
+                        break;
+                    case 4:
+                        System.out.format("PROG: Get the final cost of the order.\n");
+                        double orderAmount = userOrder.calculatePrice();
+                        System.out.format("This order has a grand total of $%f\n", orderAmount);
+                        break;
+                    case -1:
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.format("PROG: Undefined action. Please try again.\n");
+                        break;
+                }
+            }
         }
         else
         {
