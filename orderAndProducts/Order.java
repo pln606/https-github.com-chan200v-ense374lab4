@@ -57,6 +57,7 @@ public class Order
                 {
                     currentOrderLine.incrementQuantity(quantity);
                     isDone = true;
+                    break;
                 }
             }
             if (!isDone)
